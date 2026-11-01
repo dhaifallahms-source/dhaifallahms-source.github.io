@@ -47,6 +47,7 @@
   .slides{display:grid;gap:22px}
   figure{background:var(--panel);border:1px solid var(--line);scroll-margin-top:20px}
   figure img{display:block;width:100%;height:auto;cursor:zoom-in}
+  img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
   figcaption{padding:10px 14px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px}
   footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:14px}
   footer a{color:var(--gold2)}
@@ -66,7 +67,7 @@
     <p class="tools">Excel · Power BI · Power Query · DAX · Data Modeling</p>
     <p class="tag">Transforming raw data into decisions that protect revenue and drive business growth.</p>
     <div class="cta">
-      <a class="btn primary" href="Dhaifallah_Alsuhaymi_Portfolio.pdf" download>&#8595; Download PDF</a>
+      <a class="btn primary" href="#page-01">View Portfolio</a>
       <a class="btn" href="mailto:dhaifallahms@gmail.com">dhaifallahms@gmail.com</a>
     </div>
   </div>
@@ -106,6 +107,8 @@
     f.innerHTML=`<img src="page-${n}.webp" width="1600" height="900" alt="${t}" ${i>1?'loading="lazy"':''}><figcaption><span>${t}</span><span>${n} / 18</span></figcaption>`;
     f.querySelector('img').onclick=e=>{zimg.src=e.target.src;zimg.alt=t;zoom.showModal()};box.appendChild(f)});
   zoom.onclick=e=>{if(e.target===zoom)zoom.close()};
+  document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
+  document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
 </script>
 </body>
 </html>
