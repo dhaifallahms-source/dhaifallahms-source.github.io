@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dhaifallah Alsuhaymi · Data & Business Analyst Portfolio</title>
-<meta name="description" content="Data & Business Analyst portfolio: 4 case studies in Excel, Power Query, Power BI and DAX covering customer churn, e-commerce revenue, HR attrition and sales profitability.">
+<meta name="description" content="Data & Business Analyst portfolio: 6 projects in SQL Server, Python, Power BI and DAX covering delivery risk, customer churn, e-commerce revenue, HR attrition and sales profitability.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dhaifallah Alsuhaymi · Data & Business Analyst">
-<meta property="og:description" content="4 case studies: problem → approach → decision → financial impact. Excel · Power BI · Power Query · DAX.">
+<meta property="og:description" content="6 projects: problem → approach → decision → financial impact. SQL Server · Python · Power BI · DAX.">
 <meta property="og:image" content="https://dhaifallahms-source.github.io/preview.jpg">
 <meta property="og:url" content="https://dhaifallahms-source.github.io/">
 <meta name="twitter:card" content="summary_large_image">
@@ -15,114 +15,117 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#121c26;--panel:#18242f;--line:#2a3846;--gold:#c9a24b;--gold2:#e8cb84;--text:#f6f0e1;--muted:#9aacb9}
-  *{box-sizing:border-box;margin:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-  a{color:inherit}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-  header{padding:72px 0 48px;border-bottom:1px solid var(--line)}
-  .kicker{color:var(--gold);letter-spacing:.28em;font-size:12px;font-weight:600;text-transform:uppercase}
-  h1{font:600 clamp(40px,7vw,68px)/1.05 Lora,serif;margin:16px 0 12px}
-  h1 span{color:var(--gold2)}
-  .role{display:inline-block;border:1px solid var(--gold);color:var(--gold2);padding:6px 14px;letter-spacing:.2em;font-size:13px;font-weight:600;text-transform:uppercase}
-  .tools{color:var(--muted);margin-top:18px}
-  .tag{font:italic 500 19px/1.5 Lora,serif;margin-top:6px;max-width:620px}
-  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--gold);transition:.2s}
-  .btn.primary{background:var(--gold);color:#121c26}
-  .btn.primary:hover{background:var(--gold2)}
-  .btn:not(.primary):hover{background:rgba(201,162,75,.12)}
-  section{padding:56px 0}
-  h2{font:600 28px/1.2 Lora,serif;margin-bottom:6px}
-  .sub{color:var(--muted);margin-bottom:28px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .card{display:block;background:var(--panel);border:1px solid var(--line);padding:22px;text-decoration:none;transition:.2s}
-  .card:hover{border-color:var(--gold);transform:translateY(-2px)}
-  .num{color:var(--gold2);font:600 14px Inter;letter-spacing:.1em}
-  .card h3{font:600 19px/1.3 Lora,serif;margin:8px 0}
-  .card p{color:var(--muted);font-size:14px}
-  .big{font:600 30px Lora,serif;color:var(--gold2);margin-top:14px}
-  .big small{display:block;font:500 12px Inter;color:var(--muted);letter-spacing:.04em}
-  .slides{display:grid;gap:22px}
-  figure{background:var(--panel);border:1px solid var(--line);scroll-margin-top:20px}
-  figure img{display:block;width:100%;height:auto;cursor:zoom-in}
-  img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
-  figcaption{padding:10px 14px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px}
-  footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:14px}
-  footer a{color:var(--gold2)}
-  dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
-  dialog::backdrop{background:rgba(5,10,15,.92)}
-  dialog img{max-width:96vw;max-height:92vh;display:block}
-  dialog button{position:fixed;top:14px;right:18px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
-  @media (max-width:600px){header{padding:48px 0 36px}section{padding:40px 0}.btn{flex:1;justify-content:center}}
+:root{--bg:#121c26;--panel:#18242f;--line:#2a3846;--gold:#c9a24b;--gold2:#e8cb84;--text:#f6f0e1;--muted:#9aacb9}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{padding:72px 0 48px;border-bottom:1px solid var(--line)}
+.kicker{color:var(--gold);letter-spacing:.28em;font-size:12px;font-weight:600;text-transform:uppercase}
+h1{font:600 clamp(40px,7vw,68px)/1.05 Lora,serif;margin:16px 0 12px}
+h1 span{color:var(--gold2)}
+.role{display:inline-block;border:1px solid var(--gold);color:var(--gold2);padding:6px 14px;letter-spacing:.2em;font-size:13px;font-weight:600;text-transform:uppercase}
+.tools{color:var(--muted);margin-top:18px}
+.tag{font:italic 500 19px/1.5 Lora,serif;margin-top:6px;max-width:620px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--gold);transition:.2s}
+.btn.primary{background:var(--gold);color:#121c26}
+.btn.primary:hover{background:var(--gold2)}
+.btn:not(.primary):hover{background:rgba(201,162,75,.12)}
+section{padding:56px 0}
+h2{font:600 28px/1.2 Lora,serif;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{display:block;background:var(--panel);border:1px solid var(--line);padding:22px;text-decoration:none;transition:.2s}
+.card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.num{color:var(--gold2);font:600 14px Inter;letter-spacing:.1em}
+.card h3{font:600 19px/1.3 Lora,serif;margin:8px 0}
+.card p{color:var(--muted);font-size:14px}
+.big{font:600 30px Lora,serif;color:var(--gold2);margin-top:14px}
+.big small{display:block;font:500 12px Inter;color:var(--muted);letter-spacing:.04em}
+.slides{display:grid;gap:22px}
+figure{background:var(--panel);border:1px solid var(--line);scroll-margin-top:20px}
+figure img{display:block;width:100%;height:auto;cursor:zoom-in}
+img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
+figcaption{padding:10px 14px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px}
+footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:14px}
+footer a{color:var(--gold2)}
+dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh}
+dialog::backdrop{background:rgba(5,10,15,.92)}
+dialog img{max-width:96vw;max-height:92vh;display:block}
+dialog button{position:fixed;top:14px;right:18px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
+@media (max-width:600px){header{padding:48px 0 36px}section{padding:40px 0}.btn{flex:1;justify-content:center}}
 </style>
 </head>
 <body>
 <header>
-  <div class="wrap">
-    <div class="kicker">Portfolio · 2026 · Riyadh, Saudi Arabia</div>
-    <h1>Dhaifallah <span>Alsuhaymi</span></h1>
-    <div class="role">Data &amp; Business Analyst</div>
-    <p class="tools">Excel · Power BI · Power Query · DAX · SQL · Python (pandas, scikit-learn)</p>
-    <p class="tag">Transforming raw data into decisions that protect revenue and drive business growth.</p>
-    <div class="cta">
-      <a class="btn primary" href="#page-01">View Portfolio</a>
-      <a class="btn" href="https://github.com/dhaifallahms-source">GitHub</a>
-      <a class="btn" href="mailto:dhaifallahms@gmail.com">dhaifallahms@gmail.com</a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="kicker">Portfolio · 2026 · Riyadh, Saudi Arabia</div>
+<h1>Dhaifallah <span>Alsuhaymi</span></h1>
+<div class="role">Data &amp; Business Analyst</div>
+<p class="tools">SQL Server (T-SQL) · Python (pandas, scikit-learn) · Power BI · DAX · Power Query · Excel</p>
+<p class="tag">Transforming raw data into decisions that protect revenue and drive business growth.</p>
+<div class="cta">
+<a class="btn primary" href="#page-01">View Portfolio</a>
+<a class="btn" href="Dhaifallah_Alsuhaymi_Portfolio.pdf" download>Download PDF</a>
+<a class="btn" href="https://github.com/dhaifallahms-source">GitHub</a>
+<a class="btn" href="mailto:dhaifallahms@gmail.com">dhaifallahms@gmail.com</a>
+</div>
+</div>
 </header>
 
 <section>
-  <div class="wrap">
-    <h2>Four Projects, One Pattern</h2>
-    <p class="sub">Problem → approach → decision → financial impact, with every assumption stated.</p>
-    <div class="cards">
-      <a class="card" href="#page-04"><div class="num">01</div><h3>Customer Churn</h3><p>64,374 records. Churn jumps from about 10% to 71% once payment delay passes 15 days.</p><div class="big">$15.8M<small>spend of churned customers · measured</small></div></a>
-      <a class="card" href="#page-07"><div class="num">02</div><h3>E-Commerce Revenue</h3><p>50,000 orders. Discounts up to 30% sold no extra units per order.</p><div class="big">$621K<small>recoverable at the same units · calculated</small></div></a>
-      <a class="card" href="#page-11"><div class="num">03</div><h3>HR Attrition Risk</h3><p>1,470 employees. Overtime staff leave at 3x the rate; 309 flagged high risk.</p><div class="big">≈$6.8M<small>est. annual cost of exits · assumed</small></div></a>
-      <a class="card" href="#page-14"><div class="num">04</div><h3>Sales Profitability</h3><p>Rebuilt dashboard exposed a 5.6x seasonal gap and negative margins on deep discounts.</p><div class="big">−127%<small>margin at 61%+ discount · measured</small></div></a>
-    </div>
-  </div>
+<div class="wrap">
+<h2>Six Projects, One Pattern</h2>
+<p class="sub">Problem → approach → decision → financial impact, with every assumption stated.</p>
+<div class="cards">
+<a class="card" href="#page-04"><div class="num">SQL SERVER</div><h3>Olist: Late Deliveries &amp; Reviews</h3><p>96,470 delivered orders. Late orders average 2.57 stars vs 4.29 on time, and late buyers reorder less (z = -2.99).</p><div class="big">8.11%<small>of delivered orders arrive late · measured</small></div></a>
+<a class="card" href="#page-06"><div class="num">PYTHON</div><h3>Olist: Late-Delivery Risk Model</h3><p>Purchase-time features rank order risk (ROC-AUC 0.756, 0.675 on future orders). The riskiest 10% are late 27.9% of the time vs 1.5% for the lowest 10%.</p><div class="big">34%<small>of late orders caught in the riskiest 10% · measured</small></div></a>
+<a class="card" href="#page-08"><div class="num">POWER BI</div><h3>Customer Churn</h3><p>64,374 records. Churn jumps from about 10% to 71% once payment delay passes 15 days.</p><div class="big">$15.8M<small>spend of churned customers · measured</small></div></a>
+<a class="card" href="#page-11"><div class="num">POWER BI</div><h3>E-Commerce Revenue</h3><p>50,000 orders. Discounts up to 30% sold no extra units per order.</p><div class="big">$621K<small>recoverable at the same units · calculated</small></div></a>
+<a class="card" href="#page-15"><div class="num">POWER BI</div><h3>HR Attrition Risk</h3><p>1,470 employees. Overtime staff leave at 3x the rate; 309 flagged high risk.</p><div class="big">≈$6.8M<small>est. annual cost of exits · assumed</small></div></a>
+<a class="card" href="#page-18"><div class="num">POWER BI</div><h3>Sales Profitability</h3><p>Rebuilt dashboard exposed a 5.6x seasonal gap and negative margins on deep discounts.</p><div class="big">−127%<small>margin at 61%+ discount · measured</small></div></a>
+</div>
+</div>
 </section>
 
 <section style="padding-top:0">
-  <div class="wrap">
-    <h2>Code &amp; Dashboards on GitHub</h2>
-    <p class="sub">Open the SQL scripts, the Python notebook and the Power BI files behind the case studies.</p>
-    <div class="cards">
-      <a class="card" href="https://github.com/dhaifallahms-source/olist-sql-delivery-analysis" target="_blank" rel="noopener"><div class="num">SQL</div><h3>Olist: Late Deliveries &amp; Reviews</h3><p>SQL Server analysis of 100k orders: JOINs, CTEs, window functions and a z-test. Late orders average 2.57 stars vs 4.29 on time.</p><div class="big">8.11%<small>of delivered orders arrive late · measured</small></div></a>
-      <a class="card" href="https://github.com/dhaifallahms-source/olist-sql-delivery-analysis/tree/main/python" target="_blank" rel="noopener"><div class="num">PYTHON</div><h3>Olist: Late-Delivery Risk Model</h3><p>pandas and scikit-learn on 96k delivered orders: purchase-time features rank risk (ROC-AUC 0.756). Includes a 4-page interactive dashboard.</p><div class="big">27.9%<small>late in the riskiest 10% of orders vs 1.5% in the lowest · measured</small></div></a>
-      <a class="card" href="https://dhaifallahms-source.github.io/olist-sql-delivery-analysis/dashboard/" target="_blank" rel="noopener"><div class="num">LIVE DASHBOARD</div><h3>Interactive Late-Delivery Dashboard</h3><p>Four pages built in HTML and JavaScript: overview, model, a what-if scenario with sliders, and routes. Runs in the browser, no install.</p><div class="big">4<small>interactive pages · Olist public data</small></div></a>
-      <a class="card" href="https://github.com/dhaifallahms-source/powerbi-case-studies" target="_blank" rel="noopener"><div class="num">POWER BI</div><h3>Four Power BI Case Studies</h3><p>Dashboard screenshots, .pbix files and a write-up for each project: churn, e-commerce revenue, HR attrition and sales profitability.</p><div class="big">4<small>projects with downloadable .pbix files</small></div></a>
-    </div>
-  </div>
+<div class="wrap">
+<h2>Code &amp; Dashboards on GitHub</h2>
+<p class="sub">Open the SQL scripts, the Python notebook and the Power BI files behind the case studies.</p>
+<div class="cards">
+<a class="card" href="https://github.com/dhaifallahms-source/olist-sql-delivery-analysis" target="_blank" rel="noopener"><div class="num">SQL</div><h3>Olist: Late Deliveries &amp; Reviews</h3><p>SQL Server analysis of 100k orders: JOINs, CTEs, window functions and a z-test. Late orders average 2.57 stars vs 4.29 on time.</p><div class="big">8.11%<small>of delivered orders arrive late · measured</small></div></a>
+<a class="card" href="https://github.com/dhaifallahms-source/olist-sql-delivery-analysis/tree/main/python" target="_blank" rel="noopener"><div class="num">PYTHON</div><h3>Olist: Late-Delivery Risk Model</h3><p>pandas and scikit-learn on 96k delivered orders: purchase-time features rank risk (ROC-AUC 0.756). Includes a 4-page interactive dashboard.</p><div class="big">27.9%<small>late in the riskiest 10% of orders vs 1.5% in the lowest · measured</small></div></a>
+<a class="card" href="https://dhaifallahms-source.github.io/olist-sql-delivery-analysis/dashboard/" target="_blank" rel="noopener"><div class="num">LIVE DASHBOARD</div><h3>Interactive Late-Delivery Dashboard</h3><p>Four pages built in HTML and JavaScript: overview, model, a what-if scenario with sliders, and routes. Runs in the browser, no install.</p><div class="big">4<small>interactive pages · Olist public data</small></div></a>
+<a class="card" href="https://github.com/dhaifallahms-source/powerbi-case-studies" target="_blank" rel="noopener"><div class="num">POWER BI</div><h3>Four Power BI Case Studies</h3><p>Dashboard screenshots, .pbix files and a write-up for each project: churn, e-commerce revenue, HR attrition and sales profitability.</p><div class="big">4<small>projects with downloadable .pbix files</small></div></a>
+</div>
+</div>
 </section>
 
 <section style="padding-top:0">
-  <div class="wrap">
-    <h2>Full Portfolio</h2>
-    <p class="sub">18 pages. Tap any page to enlarge.</p>
-    <div class="slides" id="slides"></div>
-  </div>
+<div class="wrap">
+<h2>Full Portfolio</h2>
+<p class="sub">22 pages. Tap any page to enlarge, or <a href="Dhaifallah_Alsuhaymi_Portfolio.pdf" download style="color:var(--gold2)">download the PDF</a>.</p>
+<div class="slides" id="slides"></div>
+</div>
 </section>
 
 <footer>
-  <div class="wrap">Open to Data Analyst and Business Analyst roles in Riyadh · <a href="mailto:dhaifallahms@gmail.com">dhaifallahms@gmail.com</a><br>All projects use public Kaggle datasets; dollar figures are scenario estimates, not realized results.</div>
+<div class="wrap">Open to Data Analyst and Business Analyst roles in Riyadh · <a href="mailto:dhaifallahms@gmail.com">dhaifallahms@gmail.com</a><br>All projects use public Kaggle datasets; dollar figures are scenario estimates, not realized results.</div>
 </footer>
 
 <dialog id="zoom"><button aria-label="Close" onclick="zoom.close()">&times;</button><img alt=""></dialog>
 
 <script>
-  const titles=["Cover","Analyst Profile","Portfolio at a Glance","Case Study 01 · Customer Churn","Case Study 01 · Key Insights","Case Study 01 · Dashboard","Case Study 02 · E-Commerce Revenue","Case Study 02 · Key Insights","Case Study 02 · Sales Dashboard","Case Study 02 · Products & Payments","Case Study 03 · HR Attrition Risk","Case Study 03 · Key Insights","Case Study 03 · Dashboard","Case Study 04 · Sales Dashboard Rebuild","Case Study 04 · Key Insights","Case Study 04 · Dashboard","Method & Assumptions","Impact Summary"];
-  const box=document.getElementById('slides'),zoom=document.getElementById('zoom'),zimg=zoom.querySelector('img');
-  titles.forEach((t,i)=>{const n=String(i+1).padStart(2,'0');const f=document.createElement('figure');f.id='page-'+n;
-    f.innerHTML=`<img src="page-${n}.webp" width="1600" height="900" alt="${t}" ${i>1?'loading="lazy"':''}><figcaption><span>${t}</span><span>${n} / 18</span></figcaption>`;
-    f.querySelector('img').onclick=e=>{zimg.src=e.target.src;zimg.alt=t;zoom.showModal()};box.appendChild(f)});
-  zoom.onclick=e=>{if(e.target===zoom)zoom.close()};
-  document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
-  document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
+const titles=["Cover","Analyst Profile","Portfolio at a Glance","Olist · Late Deliveries & Reviews (SQL)","Olist · Key Insights","Olist · Late-Delivery Risk Model (Python)","Olist · Live Dashboard","Case Study 01 · Customer Churn","Case Study 01 · Key Insights","Case Study 01 · Dashboard","Case Study 02 · E-Commerce Revenue","Case Study 02 · Key Insights","Case Study 02 · Sales Dashboard","Case Study 02 · Products & Payments","Case Study 03 · HR Attrition Risk","Case Study 03 · Key Insights","Case Study 03 · Dashboard","Case Study 04 · Sales Dashboard Rebuild","Case Study 04 · Key Insights","Case Study 04 · Dashboard","Method & Assumptions","Impact Summary"];
+const box=document.getElementById('slides'),zoom=document.getElementById('zoom'),zimg=zoom.querySelector('img');
+titles.forEach((t,i)=>{const n=String(i+1).padStart(2,'0');const f=document.createElement('figure');f.id='page-'+n;
+f.innerHTML=`<img src="page-${n}.webp" width="1600" height="900" alt="${t}" ${i>1?'loading="lazy"':''}><figcaption><span>${t}</span><span>${n} / 22</span></figcaption>`;
+f.querySelector('img').onclick=e=>{zimg.src=e.target.src;zimg.alt=t;zoom.showModal()};box.appendChild(f)});
+zoom.onclick=e=>{if(e.target===zoom)zoom.close()};
+document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
+document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
 </script>
 </body>
 </html>
